@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request a Proposal | S&R Batista Group</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <div>Consulting for legal professionals & paralegal programs</div>
+      <div><a href="retainers.html">View Retainers</a></div>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <img src="logo.png" alt="S&R Batista Group Logo" style="width:150px; height:150px; border-radius:50%; object-fit:cover; border:2px solid #0b0b0b;">
+        <div class="name">
+          <strong>S&R Batista Group</strong>
+          <span>Paralegal Consulting & Systems</span>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="retainers.html">Retainers</a>
+        <a class="btn btn-primary" href="proposal.html">Request a Proposal</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Request a Proposal</h1>
+      <p>
+        Please complete the form below. We review inquiries and respond to qualified requests within 1–2 business days.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Tell us what you need</h2>
+      <p class="lead">
+        We work with law firms and schools that value structure, training, and performance.
+      </p>
+
+      <form class="form" onsubmit="event.preventDefault(); alert('Form submitted! (Connect this to a real form tool next)');">
+        <div class="form-grid">
+
+          <div class="field">
+            <label>Full Name</label>
+            <input type="text" placeholder="Your name" required />
+          </div>
+
+          <div class="field">
+            <label>Email</label>
+            <input type="email" placeholder="you@email.com" required />
+          </div>
+
+          <div class="field">
+            <label>Phone</label>
+            <input type="tel" placeholder="(000) 000-0000" />
+          </div>
+
+          <div class="field">
+            <label>Organization Type</label>
+            <select required>
+              <option value="">Select one</option>
+              <option>Law Firm</option>
+              <option>School / Paralegal Program</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Team Size</label>
+            <select required>
+              <option value="">Select one</option>
+              <option>1–5</option>
+              <option>6–15</option>
+              <option>16–30</option>
+              <option>30+</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Budget Range</label>
+            <select required>
+              <option value="">Select one</option>
+              <option>$2,500 – $5,000</option>
+              <option>$5,000 – $10,000</option>
+              <option>$10,000+</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+
+          <div class="field" style="grid-column: 1 / -1;">
+            <label>What are you looking for?</label>
+            <textarea placeholder="Example: Workflow improvements, paralegal performance standards, training, onboarding systems, curriculum support, etc." required></textarea>
+          </div>
+
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit">Submit Request</button>
+          <a class="btn btn-outline" href="retainers.html">View Retainers</a>
+        </div>
+
+        <p style="margin-top:12px; color: var(--muted); font-size: 13px;">
+          *This form is a template. For a live website, connect it to a form provider (ex: Google Forms embed, Formspree, or your website form builder).
+        </p>
+      </form>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div>
+        <strong>S&R Batista Group</strong>
+        <p>Luxury consulting for law firms and paralegal programs.</p>
+      </div>
+
+      <div class="small-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="retainers.html">Retainers</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
