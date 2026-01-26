@@ -622,12 +622,10 @@ margin-top:10px;
   width: auto;
   max-width: 170px;
   object-fit: contain;
-  filter: grayscale(100%);
   opacity: .85;
 }
 
 .logo-item:hover img{
-  filter: grayscale(0%);
   opacity: 1;
   transform: translateY(-1px);
 }
@@ -651,4 +649,5 @@ margin-top:10px;
     height: 32px;
   }
 }
+
 
