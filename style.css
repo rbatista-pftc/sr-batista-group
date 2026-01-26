@@ -562,3 +562,93 @@ margin-top:10px;
   font-weight: 800;
   color: var(--muted);
 }
+/* ============================
+   Luxury Scrolling Logo Ticker
+============================ */
+
+.logo-ticker{
+  margin-top: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.10);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 14px 35px rgba(0,0,0,.06);
+  padding: 18px 0;
+  position: relative;
+}
+
+/* subtle fade edges for luxury look */
+.logo-ticker::before,
+.logo-ticker::after{
+  content:"";
+  position:absolute;
+  top:0;
+  width: 80px;
+  height: 100%;
+  z-index: 2;
+  pointer-events:none;
+}
+
+.logo-ticker::before{
+  left:0;
+  background: linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0) 100%);
+}
+
+.logo-ticker::after{
+  right:0;
+  background: linear-gradient(270deg, #ffffff 0%, rgba(255,255,255,0) 100%);
+}
+
+.logo-track{
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  width: max-content;
+  animation: tickerScroll 22s linear infinite;
+}
+
+.logo-item{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 10px 12px;
+  min-width: 160px;
+  opacity: .92;
+  transition: .15s ease;
+}
+
+.logo-item img{
+  height: 38px;
+  width: auto;
+  max-width: 170px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: .85;
+}
+
+.logo-item:hover img{
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* pause on hover (nice UX) */
+.logo-ticker:hover .logo-track{
+  animation-play-state: paused;
+}
+
+@keyframes tickerScroll{
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* mobile: slower + smaller logos */
+@media (max-width: 920px){
+  .logo-track{
+    animation-duration: 28s;
+  }
+  .logo-item img{
+    height: 32px;
+  }
+}
+
