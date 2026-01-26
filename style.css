@@ -566,45 +566,36 @@ margin-top:10px;
    Luxury Scrolling Logo Ticker
 ============================ */
 
-.logo-ticker{
-  margin-top: 18px;
+/* Card-safe logo ticker */
+.logo-ticker--card{
+  margin-top: 12px;
+  padding: 14px 0;
   overflow: hidden;
-  border: 1px solid rgba(0,0,0,.10);
-  border-radius: 22px;
+  border-radius: 14px;
   background: #fff;
-  box-shadow: 0 14px 35px rgba(0,0,0,.06);
-  padding: 18px 0;
-  position: relative;
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: none;
 }
 
-/* subtle fade edges for luxury look */
-.logo-ticker::before,
-.logo-ticker::after{
-  content:"";
-  position:absolute;
-  top:0;
-  width: 80px;
-  height: 100%;
-  z-index: 2;
-  pointer-events:none;
+/* shrink logos slightly inside cards */
+.logo-ticker--card .logo-item{
+  min-width: 140px;
+  padding: 8px 10px;
 }
 
-.logo-ticker::before{
-  left:0;
-  background: linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0) 100%);
+.logo-ticker--card .logo-item img{
+  height: 32px;
 }
 
-.logo-ticker::after{
-  right:0;
-  background: linear-gradient(270deg, #ffffff 0%, rgba(255,255,255,0) 100%);
+/* slower, calmer motion in cards */
+.logo-ticker--card .logo-track{
+  animation-duration: 26s;
 }
 
-.logo-track{
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  width: max-content;
-  animation: tickerScroll 22s linear infinite;
+/* remove edge fades inside cards (cleaner) */
+.logo-ticker--card::before,
+.logo-ticker--card::after{
+  display: none;
 }
 
 .logo-item{
@@ -637,13 +628,15 @@ margin-top:10px;
 
 /* mobile: slower + smaller logos */
 @media (max-width: 920px){
-  .logo-track{
+  .logo-ticker:not(.logo-ticker--card) .logo-track{
     animation-duration: 28s;
   }
-  .logo-item img{
+  .logo-ticker:not(.logo-ticker--card) .logo-item img{
     height: 32px;
   }
 }
+
+
 
 
 
