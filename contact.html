@@ -192,8 +192,7 @@
             Tell us your organization type and what support you’re looking for.
           </p>
 
-          <form class="form" onsubmit="event.preventDefault(); alert('Message submitted! (Connect to a live form next)');"
-                style="box-shadow:none; border:none; padding:0;">
+          <form class="form" onsubmit="handleFormSubmit(event)" style="box-shadow:none; border:none; padding:0;">
             <div class="form-grid">
 
               <div class="field">
@@ -267,8 +266,17 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 
+  function handleFormSubmit(event){
+  event.preventDefault();
+
+  const form = event.target;
+  const success = form.nextElementSibling;
+
+  form.style.display = "none";
+  success.hidden = false;
+}
+</script>
 
 </body>
 </html>
