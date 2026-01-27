@@ -787,6 +787,19 @@ margin-top:10px;
   text-align: center;
 }
 
+.form-success{
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(200,162,74,.08);
+  border: 1px solid rgba(200,162,74,.35);
+}
+
+.form-success h4{
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
 
 
 
