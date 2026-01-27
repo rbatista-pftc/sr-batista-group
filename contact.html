@@ -196,7 +196,6 @@
             class="form"
             action="https://formspree.io/f/xykwnoov"
             method="POST"
-            onsubmit="handleFormSubmit(event)"
             style="box-shadow:none; border:none; padding:0;"
             >
 
@@ -233,10 +232,14 @@
               <a class="btn btn-outline" href="tiers.html">View Consulting Tiers</a>
             </div>
           </form>
-          <div class="form-success" hidden>
-            <h4>Thank you for your message</h4>
-            <p>A member of our team will review your inquiry and respond within<strong>24–48 business hours</strong>.</p>
-          </div>
+          <input type="hidden" name="_next" value="#form-success">
+            <div id="form-success" class="form-success">
+              <h4>Thank you for your message</h4>
+              <p>
+                A member of our team will review your inquiry and respond within
+                <strong>24–48 business hours</strong>.
+              </p>
+            </div>
         </div>
 
       </div>
@@ -273,26 +276,6 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
-
-  function handleFormSubmit(e){
-  e.preventDefault();
-
-  const form = e.target;
-  const data = new FormData(form);
-
-  fetch(form.action, {
-    method: "POST",
-    body: data,
-    headers: { "Accept": "application/json" }
-  }).then(response => {
-    if (response.ok) {
-      form.style.display = "none";
-      form.nextElementSibling.hidden = false;
-    } else {
-      alert("Something went wrong. Please email us directly.");
-    }
-  });
-}
 </script>
 
 </body>
