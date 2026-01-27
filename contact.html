@@ -192,17 +192,24 @@
             Tell us your organization type and what support you’re looking for.
           </p>
 
-          <form class="form" onsubmit="handleFormSubmit(event)" style="box-shadow:none; border:none; padding:0;">
+          <form
+            class="form"
+            action="https://formspree.io/f/xykwnoov"
+            method="POST"
+            onsubmit="handleFormSubmit(event)"
+            style="box-shadow:none; border:none; padding:0;"
+            >
+
             <div class="form-grid">
 
               <div class="field">
                 <label>Name</label>
-                <input type="text" placeholder="Your name" required />
+                <input type="text" name="name" placeholder="Your name" required />
               </div>
 
               <div class="field">
                 <label>Email</label>
-                <input type="email" placeholder="you@email.com" required />
+                <input type="email" name="email" placeholder="you@email.com" required />
               </div>
 
               <div class="form-group">
@@ -216,7 +223,7 @@
 
               <div class="field" style="grid-column:1 / -1;">
                 <label>Message</label>
-                <textarea placeholder="How can we help you?" required></textarea>
+                <textarea name="message" placeholder="How can we help you?" required></textarea>
               </div>
 
             </div>
@@ -267,14 +274,24 @@
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  function handleFormSubmit(event){
-  event.preventDefault();
+  function handleFormSubmit(e){
+  e.preventDefault();
 
-  const form = event.target;
-  const success = form.nextElementSibling;
+  const form = e.target;
+  const data = new FormData(form);
 
-  form.style.display = "none";
-  success.hidden = false;
+  fetch(form.action, {
+    method: "POST",
+    body: data,
+    headers: { "Accept": "application/json" }
+  }).then(response => {
+    if (response.ok) {
+      form.style.display = "none";
+      form.nextElementSibling.hidden = false;
+    } else {
+      alert("Something went wrong. Please email us directly.");
+    }
+  });
 }
 </script>
 
