@@ -494,7 +494,23 @@ textarea{min-height: 120px; resize: vertical;}
   .hero h1{font-size: 36px;}
 }
 @media (max-width: 768px){
-  img{width:80px;height:80px;}
+  img{width:80px !important;height:80px !important;}
+  .nav{
+    gap: 6px;               /* give breathing room */
+    justify-content: flex-end;
+  }
+  .nav a:not(.btn){
+    padding: 6px 10px;      /* slightly smaller tap targets */
+    font-size: 13px;
+  }
+  /* hide separators on mobile */
+  .nav a:not(.btn)::after{
+    display: none;
+  }
+  /* make CTA button drop nicely */
+  .nav a.btn{
+    margin-top: 6px;
+  }
 }
 /* ============================
    Luxury Ratings / Social Proof
@@ -743,6 +759,7 @@ margin-top:10px;
   color: #777;
   text-align: center;
 }
+
 
 
 
