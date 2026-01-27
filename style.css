@@ -715,6 +715,17 @@ margin-top:10px;
   fill: #111;
 }
 
+.footer-contact a{
+  display: inline-block;
+  color: inherit;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.footer-contact a:hover{
+  text-decoration: underline;
+}
+
 
 
 
