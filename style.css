@@ -493,7 +493,9 @@ textarea{min-height: 120px; resize: vertical;}
   .form-grid{grid-template-columns: 1fr;}
   .hero h1{font-size: 36px;}
 }
-
+@media (max-width: 768px){
+  img{200px;}
+}
 /* ============================
    Luxury Ratings / Social Proof
 ============================ */
@@ -741,6 +743,7 @@ margin-top:10px;
   color: #777;
   text-align: center;
 }
+
 
 
 
