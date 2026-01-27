@@ -566,32 +566,29 @@ margin-top:10px;
    Luxury Scrolling Logo Ticker
 ============================ */
 
-/* Card-safe logo ticker */
+/* Card-safe logo ticker (prevents widening the grid) */
 .logo-ticker--card{
-  margin-top: 12px;
-  padding: 14px 0;
+  width: 100%;
+  max-width: 100%;
   overflow: hidden;
-  border-radius: 14px;
-  background: #fff;
-  border: 1px solid rgba(0,0,0,.08);
-  box-shadow: none;
 }
-
+.logo-ticker--card .logo-track{
+  width: 100%;
+  max-width: 100%;
+  will-change: transform;
+}
 /* shrink logos slightly inside cards */
 .logo-ticker--card .logo-item{
   min-width: 140px;
   padding: 8px 10px;
 }
-
 .logo-ticker--card .logo-item img{
   height: 32px;
 }
-
 /* slower, calmer motion in cards */
 .logo-ticker--card .logo-track{
   animation-duration: 26s;
 }
-
 /* remove edge fades inside cards (cleaner) */
 .logo-ticker--card::before,
 .logo-ticker--card::after{
@@ -635,6 +632,11 @@ margin-top:10px;
     height: 32px;
   }
 }
+/* Allow grid children to shrink instead of forcing width */
+.split > .card{
+  min-width: 0;
+}
+
 
 
 
