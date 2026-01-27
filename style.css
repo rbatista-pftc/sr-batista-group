@@ -563,36 +563,25 @@ margin-top:10px;
   color: var(--muted);
 }
 /* ============================
-   Luxury Scrolling Logo Ticker
+   Global Logo Ticker (base)
 ============================ */
 
-/* Card-safe logo ticker (prevents widening the grid) */
-.logo-ticker--card{
-  width: 100%;
-  max-width: 100%;
+.logo-ticker{
+  margin-top: 18px;
   overflow: hidden;
+  border: 1px solid rgba(0,0,0,.10);
+  border-radius: 22px;
+  background: #fff;
+  padding: 16px 0;
+  position: relative;
 }
-.logo-ticker--card .logo-track{
-  width: 100%;
-  max-width: 100%;
-  will-change: transform;
-}
-/* shrink logos slightly inside cards */
-.logo-ticker--card .logo-item{
-  min-width: 140px;
-  padding: 8px 10px;
-}
-.logo-ticker--card .logo-item img{
-  height: 32px;
-}
-/* slower, calmer motion in cards */
-.logo-ticker--card .logo-track{
-  animation-duration: 26s;
-}
-/* remove edge fades inside cards (cleaner) */
-.logo-ticker--card::before,
-.logo-ticker--card::after{
-  display: none;
+
+.logo-track{
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  width: max-content;
+  animation: tickerScroll 22s linear infinite;
 }
 
 .logo-item{
@@ -601,7 +590,6 @@ margin-top:10px;
   justify-content:center;
   padding: 10px 12px;
   min-width: 160px;
-  opacity: .92;
   transition: .15s ease;
 }
 
@@ -610,12 +598,35 @@ margin-top:10px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
+  filter: none;
   opacity: 1;
 }
 
-/* pause on hover (nice UX) */
+/* Pause on hover */
 .logo-ticker:hover .logo-track{
   animation-play-state: paused;
+}
+
+/* Edge fades (for full-width sections only) */
+.logo-ticker::before,
+.logo-ticker::after{
+  content:"";
+  position:absolute;
+  top:0;
+  width: 70px;
+  height: 100%;
+  z-index: 2;
+  pointer-events:none;
+}
+
+.logo-ticker::before{
+  left:0;
+  background: linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0) 100%);
+}
+
+.logo-ticker::after{
+  right:0;
+  background: linear-gradient(270deg, #ffffff 0%, rgba(255,255,255,0) 100%);
 }
 
 @keyframes tickerScroll{
@@ -623,19 +634,55 @@ margin-top:10px;
   100% { transform: translateX(-50%); }
 }
 
-/* mobile: slower + smaller logos */
+/* Mobile */
 @media (max-width: 920px){
-  .logo-ticker:not(.logo-ticker--card) .logo-track{
+  .logo-track{
     animation-duration: 28s;
   }
-  .logo-ticker:not(.logo-ticker--card) .logo-item img{
+  .logo-item img{
     height: 32px;
   }
 }
-/* Allow grid children to shrink instead of forcing width */
+
+/* ============================
+   Card-Safe Logo Ticker Variant
+============================ */
+
 .split > .card{
   min-width: 0;
 }
+
+.logo-ticker--card{
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,.08);
+  padding: 12px 0;
+}
+
+/* Critical: override max-content inside cards */
+.logo-ticker--card .logo-track{
+  width: 100% !important;
+  max-width: 100%;
+  animation-duration: 26s;
+}
+
+.logo-ticker--card .logo-item{
+  min-width: 120px;
+  padding: 8px 10px;
+}
+
+.logo-ticker--card .logo-item img{
+  height: 32px;
+}
+
+/* Remove edge fades inside cards */
+.logo-ticker--card::before,
+.logo-ticker--card::after{
+  display: none;
+}
+
 
 
 
