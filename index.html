@@ -9,28 +9,55 @@
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "S&R Batista Group",
-  "url": "https://srbatistagroup.com",
-  "telephone": "+1-929-900-5422",
-  "email": "info@srbatistagroup.com",
-  "areaServed": {
-    "@type": "AdministrativeArea",
-    "name": "United States"
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday"
-    ],
-    "opens": "10:00",
-    "closes": "18:00"
-  }
+  "@graph": [
+
+    {
+      "@type": "Organization",
+      "@id": "https://srbatistagroup.com/#organization",
+      "name": "S&R Batista Group",
+      "url": "https://srbatistagroup.com",
+      "logo": "https://srbatistagroup.com/logo.png",
+      "email": "info@srbatistagroup.com",
+      "telephone": "+1-929-900-5422"
+    },
+
+    {
+      "@type": "ContactPoint",
+      "@id": "https://srbatistagroup.com/#contactpoint",
+      "telephone": "+1-929-900-5422",
+      "contactType": "customer service",
+      "email": "info@srbatistagroup.com",
+      "availableLanguage": ["English", "Spanish"],
+      "areaServed": "US"
+    },
+
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://srbatistagroup.com/#professionalservice",
+      "name": "S&R Batista Group",
+      "url": "https://srbatistagroup.com",
+      "telephone": "+1-929-900-5422",
+      "email": "info@srbatistagroup.com",
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "United States"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "10:00",
+        "closes": "18:00"
+      }
+    }
+
+  ]
 }
 </script>
 </head>
@@ -329,6 +356,7 @@
 
 </body>
 </html>
+
 
 
 
