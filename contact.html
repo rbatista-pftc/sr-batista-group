@@ -193,10 +193,12 @@
           </p>
 
           <form
+            id="contact-form"
             class="form"
             action="https://formspree.io/f/xykwnoov"
             method="POST"
             style="box-shadow:none; border:none; padding:0;"
+            data-formspree
             >
 
             <div class="form-grid">
@@ -232,7 +234,7 @@
               <a class="btn btn-outline" href="tiers.html">View Consulting Tiers</a>
             </div>
           </form>
-          <input type="hidden" name="_next" value="#form-success">
+          <div id="form-status" class="form-success" hidden></div>
             <div id="form-success" class="form-success">
               <h4>Thank you for your message</h4>
               <p>
@@ -276,6 +278,31 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  window.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+
+  Formspree.form(form, {
+    onSuccess: function () {
+      form.reset();
+      form.style.display = "none";
+      status.hidden = false;
+      status.innerHTML = `
+        <h4>Thank you for your message</h4>
+        <p>
+          A member of our team will respond within
+          <strong>24–48 business hours</strong>.
+        </p>
+      `;
+    },
+    onError: function () {
+      status.hidden = false;
+      status.innerHTML =
+        "Something went wrong. Please email us directly at info@srbatistagroup.com.";
+    }
+  });
+});
 </script>
 
 </body>
