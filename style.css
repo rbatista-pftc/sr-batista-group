@@ -788,6 +788,7 @@ margin-top:10px;
 }
 
 .form-success{
+  display: none;
   margin-top: 12px;
   padding: 14px;
   border-radius: 14px;
@@ -795,10 +796,11 @@ margin-top:10px;
   border: 1px solid rgba(200,162,74,.35);
 }
 
-.form-success h4{
-  margin-bottom: 6px;
-  font-size: 15px;
+#form-success:target{
+  display: block;
 }
+
+
 
 
 
