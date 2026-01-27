@@ -105,6 +105,13 @@ img{max-width:100%;display:block;}
   color: #1a1a1a;
   padding: 8px 14px;
   border-radius: 999px;
+  text-decoration: none;
+  position: relative;
+  transition: background-color .2s ease, color .2s ease;
+}
+.nav a:not(.btn):hover{
+  background: rgba(200,162,74,.12); /* soft gold wash */
+  color: #000;
 }
 
 /* The separator line between links */
@@ -725,6 +732,7 @@ margin-top:10px;
 .footer-contact a:hover{
   text-decoration: underline;
 }
+
 
 
 
