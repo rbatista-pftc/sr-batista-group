@@ -799,6 +799,18 @@ margin-top:10px;
 #form-success:target{
   display: block;
 }
+.recaptcha-notice{
+  margin-top: 12px;
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.recaptcha-notice a{
+  color: inherit;
+  text-decoration: underline;
+}
+
 
 
 
