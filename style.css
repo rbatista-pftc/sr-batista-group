@@ -810,6 +810,12 @@ margin-top:10px;
   color: inherit;
   text-decoration: underline;
 }
+/* Hide Google reCAPTCHA badge */
+.grecaptcha-badge{
+  visibility: hidden !important;
+}
+
+
 
 
 
